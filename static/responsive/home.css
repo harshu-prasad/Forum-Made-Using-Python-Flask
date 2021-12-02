@@ -1,0 +1,22 @@
+/* FILE WILL MAKE THE HOME PAGE OF THE WEBSITE RESPONSIVE */
+
+/* HERE WE WILL MAKE THE CATEGORY BUTTON OF THE WEBSITE RESPONSIVE */
+@media only screen and (max-width: 746px) {
+    .category-info a{
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (max-width: 594px) {
+    .category-info a{
+        font-size: 15px;
+        min-width: 100px;
+    }
+}
+
+/* HERE WE WILL MAKE THE CATEGORY TITLE OF THE WEBSITE RESPONSIVE */
+@media only screen and (max-width: 594px) {
+    .category-info h5{
+        font-size: 30px;
+    }
+}
