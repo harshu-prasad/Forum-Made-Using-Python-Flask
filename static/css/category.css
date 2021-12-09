@@ -1,0 +1,47 @@
+/* Importing the font needed for user Name and date of adding the question */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Roboto+Slab:wght@800&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.category-info-div{
+    background-color: rgb(202, 160, 221);
+    box-shadow: black 1.2vh 1.2vw 1.2rem;
+}
+
+.question-div{
+    border: 4px solid rgb(202, 160, 221);
+    border-radius: 32px;
+}
+
+.question-div:hover{
+    box-shadow: black 0.6vh 0.6vw 1.2rem;
+}
+
+.user-icon{
+    height: 30px;
+    width: 30px;
+}
+
+.question-description{
+    text-overflow: ellipsis;
+}
+
+/* .question-div{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.question-btn{
+    background-color: rgb(202, 160, 221);
+}
+
+.userName{
+    font-family: 'Roboto Slab', serif;
+}
+
+.dateAddedDivOfQuestion{
+    font-family: 'Nunito', sans-serif;
+}
