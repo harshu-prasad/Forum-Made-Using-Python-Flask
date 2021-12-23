@@ -2,121 +2,312 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
-    <title>Lorem ipsum dolor sit amet consectetur. - Anonymous</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
+  <title>Lorem ipsum dolor sit amet consectetur. - Anonymous</title>
+
+  <!-- Linking the css File that will design the current page -->
+  <link rel="stylesheet" href="../static/css/question.css">
+
+  <!-- Linking tiny Mce into the website -->
+  <script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+    referrerpolicy="origin">
+    </script>
+
+  <!-- Adding Neccesary Plugins to work with text editor -->
+  <script type="text/javascript">
+    tinymce.init({
+      selector: '#answerTheQuestion',
+      // width: 1200,
+      // height: 300,
+      plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'table emoticons template paste help'
+      ],
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+        'forecolor backcolor emoticons | help',
+      menu: {
+        favs: { title: 'Answer the Question', items: 'code visualaid | searchreplace | emoticons' }
+      },
+      menubar: 'favs file edit view insert format tools table help'
+    });
+  </script>
 </head>
 
 <body>
 
-    <!-- Navigation Bar Starts Here -->
-    <nav class="navbar navbar-expand-lg navbar-light  navigation-bar" style="background-color: rgb(174, 123, 197);">
-        <div class="container-fluid">
-            <a href="home.html">
-                <img src="../static/img/logo.png" id="companyLogoNavigationBar" src="home.html"
-                    style="cursor: pointer;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                    <a class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#loginFormModal">Login</a>
-                    <a class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#signupFormModal">Signup</a>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <!-- Navigation Bar Ends Here -->
+  <!-- Navigation Bar Starts Here -->
+  <nav class="navbar navbar-expand-lg navbar-light  navigation-bar" style="background-color: rgb(174, 123, 197);">
+    <div class="container-fluid">
+      <a href="home.html">
+        <img src="../static/img/logo.png" id="companyLogoNavigationBar" src="home.html" style="cursor: pointer;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+          <a class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#loginFormModal">Login</a>
+          <a class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#signupFormModal">Signup</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation Bar Ends Here -->
 
-    <!-- Modal for Login Form -->
-    <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Login To Your Account</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- Modal for Login Form -->
+  <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="askQuestionModalLabel">Login To Your Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                  </form>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Modal for Signup Form -->
-    <div class="modal fade" id="signupFormModal" tabindex="-1" aria-labelledby="signupFormModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Signup to Create A New Account</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                      <label for="userName" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Signup</button>
-                  </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
+  <!-- Modal for Signup Form -->
+  <div class="modal fade" id="signupFormModal" tabindex="-1" aria-labelledby="signupFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="askQuestionModalLabel">Signup to Create A New Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="userName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Signup</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mainQuestionArea container py-3 px-3 my-4">
+    <h2 class="mainHeading">Question</h2>
+    <div class="user-info-question">
+      <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+      <span>Anonymous</span>
+    </div>
+    <span class="question-time">
+      Posted on 02 Dec 2021 at 21:40
+    </span>
+    <div class="main-question-information">
+      <h1 class="question-title">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae earum delectus excepturi itaque laboriosam.
+      </h1>
+      <div class="question-description">
+        <h2 style="text-align: center;"><span style="color: #e03e2d;"><strong>Answer My Question</strong></span></h2>
+        <div>
+          <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
+                  molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
+                  impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
+                  accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
+                  aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
+                  totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
+                  asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
+                  voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
+                  quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
+                  doloremque similique commodi!💓</strong></em></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mainAnswersParentDiv container">
+    <h2 class="text-center mainHeading">Answers</h2>
+
+    <div class="answer-div py-3 px-3 my-4">
+      <div class="user-info-question">
+        <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+        <span>Anonymous</span>
+      </div>
+      <span class="question-time">
+        Posted on 02 Dec 2021 at 21:40
+      </span>
+      <div class="answer-description my-2">
+        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
+                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
+                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
+                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
+                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
+                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
+                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
+                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
+                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
+                doloremque similique commodi!💓</strong></em></span></div>
+      </div>
     </div>
 
-    
-    <footer class="py-4" style="background-color: rgb(174, 123, 197); font-weight: bold; font-size: 1.3rem; text-align: center;">
-        Copyright 2021 | Ⓒ Pinnacle Forum | All Rights Reserved
-    </footer>
+    <div class="answer-div py-3 px-3 my-4">
+      <div class="user-info-question">
+        <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+        <span>Anonymous</span>
+      </div>
+      <span class="question-time">
+        Posted on 02 Dec 2021 at 21:40
+      </span>
+      <div class="answer-description my-2">
+        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
+                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
+                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
+                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
+                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
+                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
+                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
+                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
+                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
+                doloremque similique commodi!💓</strong></em></span></div>
+      </div>
+    </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <div class="answer-div py-3 px-3 my-4">
+      <div class="user-info-question">
+        <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+        <span>Anonymous</span>
+      </div>
+      <span class="question-time">
+        Posted on 02 Dec 2021 at 21:40
+      </span>
+      <div class="answer-description my-2">
+        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
+                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
+                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
+                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
+                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
+                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
+                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
+                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
+                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
+                doloremque similique commodi!💓</strong></em></span></div>
+      </div>
+    </div>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <div class="answer-div py-3 px-3 my-4">
+      <div class="user-info-question">
+        <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+        <span>Anonymous</span>
+      </div>
+      <span class="question-time">
+        Posted on 02 Dec 2021 at 21:40
+      </span>
+      <div class="answer-description my-2">
+        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
+                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
+                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
+                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
+                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
+                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
+                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
+                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
+                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
+                doloremque similique commodi!💓</strong></em></span></div>
+      </div>
+    </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+  </div>
+
+  <div class="answer-question-parent-div my-3">
+    <!-- This button will trigger modal which will help the user to answer the question -->
+    <button type="button" class="btn noModalButtonElement" style="background-color: rgb(174, 123, 197);"
+      data-bs-toggle="modal" data-bs-target="#askQuestionModal">
+      Answer the Question
+    </button>
+  </div>
+
+  <!-- This is the main modal -->
+  <div class="modal fade" id="askQuestionModal" tabindex="-1" aria-labelledby="askQuestionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="askQuestionModalLabel">Answer the Question</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <!-- This is the tinymce textarea that will help the user to answer the question -->
+            <textarea id="answerTheQuestion" style="width: 33vw;"></textarea>
+            <button type="submit" class="btn my-2" style="background-color: rgb(174, 123, 197);">Post Answer</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-4"
+    style="background-color: rgb(174, 123, 197); width: 100%; font-weight: bold; font-size: 1.3rem; text-align: center;">
+    Copyright 2021 | Ⓒ Pinnacle Forum | All Rights Reserved
+  </footer>
+
+
+  <!-- Linking the Javascript File that would make sure that no devices other than PCs and laptops can open answer Question modal -->
+  <script src="../static/js/no tiny mce editor for short devices.js"></script>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->

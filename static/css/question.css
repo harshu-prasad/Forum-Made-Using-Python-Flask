@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainHeading{
+    font-family: 'Merriweather', serif;
+}
+
+/* Designing the main question area */
+.mainQuestionArea{
+    border: 2px solid rgb(174, 123, 197);
+    border-radius: 15px;
+}
+
+.user-info-question{
+    display: flex;
+}
+
+/* Designing the user icon */
+.user-icon-question{
+    height: 30px;
+    width: 30px;
+}
+
+.question-title{
+    font-family: 'Merriweather', serif;
+}
+
+/* Designing the button that will help the user answer the question */
+.answer-question-parent-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.answer-div{
+    border: 2px solid rgb(174, 123, 197);
+    border-radius: 15px;
+}

@@ -20,13 +20,9 @@
     box-shadow: black 0.6vh 0.6vw 1.2rem;
 }
 
-.user-icon{
+.user-icon-question{
     height: 30px;
     width: 30px;
-}
-
-.question-description{
-    text-overflow: ellipsis;
 }
 
 /* .question-div{
