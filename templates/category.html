@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
+    <title> Javascript Questions - Pinnacle Forum </title>
+
+    <!-- Linking the css file that will style the home page of the website -->
+    <link rel="stylesheet" href="../static/css/category.css">
+
+    <!-- Linking the css file that will make the home page of the website responsive -->
+    <link rel="stylesheet" href="../static/responsive/category.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar Starts Here -->
+    <nav class="navbar navbar-expand-lg navbar-light  navigation-bar" style="background-color: rgb(174, 123, 197);">
+        <div class="container-fluid">
+            <a href="home.html">
+                <img src="../static/img/logo.png" id="companyLogoNavigationBar" src="home.html"
+                    style="cursor: pointer;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                    <a class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#loginFormModal">Login</a>
+                    <a class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#signupFormModal">Signup</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation Bar Ends Here -->
+
+    <!-- Modal for Login Form -->
+    <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Login To Your Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Signup Form -->
+    <div class="modal fade" id="signupFormModal" tabindex="-1" aria-labelledby="signupFormModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Signup to Create A New Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="userName" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Category Info Starts Here -->
+
+    <div class="card category-info-div text-center container my-4" style="width: 60vw;">
+        <div class="card-body">
+            <h1 class="card-title">Javascript</h1>
+            <p class="card-text">Lovw ipsum dolor, sit amet consectetur adipisicing elit. Facilis minus ratione nesciunt
+                quasi velit quibusdam, unde neque sunt quo officia natus nemo explicabo, nihil, dicta quis laborum? At
+                quae aut a eum cum odit.</p>
+        </div>
+    </div>
+
+    <!-- Category Info Ends Here -->
+
+    <!-- Question start here -->
+
+    <h1 class="text-center my-4" id="category-questions-heading">Javascript Questions</h1>
+
+    <div class="questions-parent-div my-2 container">
+        <div class="question-div my-4 px-4 py-4">
+            <div class="user-div">
+                <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+                <span class="userName">Anonymous</span>
+            </div>
+            <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
+            <div class="question-info">
+                <h3 class="question-heading">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
+                </h3>
+            </div>
+            <a href="question.html" class="btn question-btn">More About Question</a>
+        </div>
+
+        <div class="question-div my-4 px-4 py-4">
+            <div class="user-div">
+                <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+                <span class="userName">Anonymous</span>
+            </div>
+            <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
+            <div class="question-info">
+                <h3 class="question-heading">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
+                </h3>
+            </div>
+            <a href="question.html" class="btn question-btn">More About Question</a>
+        </div>
+
+        <div class="question-div my-4 px-4 py-4">
+            <div class="user-div">
+                <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+                <span class="userName">Anonymous</span>
+            </div>
+            <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
+            <div class="question-info">
+                <h3 class="question-heading">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
+                </h3>
+            </div>
+            <a href="question.html" class="btn question-btn">More About Question</a>
+        </div>
+
+        <div class="question-div my-4 px-4 py-4">
+            <div class="user-div">
+                <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+                <span class="userName">Anonymous</span>
+            </div>
+            <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
+            <div class="question-info">
+                <h3 class="question-heading">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
+                </h3>
+                
+            </div>
+            <a href="question.html" class="btn question-btn">More About Question</a>
+        </div>
+    </div>
+
+    <!-- Question End here -->
+
+    <!-- Footer Is Here -->
+    <footer class="py-4"
+        style="background-color: rgb(174, 123, 197); font-weight: bold; font-size: 1.3rem; text-align: center;">
+        Copyright 2021 | Ⓒ Pinnacle Forum | All Rights Reserved
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>
