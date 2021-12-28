@@ -25,3 +25,9 @@
 .profile-btn{
     background-color: rgb(202, 160, 221);
 }
+
+.askQuestionsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
