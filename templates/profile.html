@@ -51,7 +51,7 @@
   <!-- Navigation Bar Starts Here -->
   <nav class="navbar navbar-expand-lg navbar-light  navigation-bar" style="background-color: rgb(174, 123, 197);">
     <div class="container-fluid">
-      <a href="home.html">
+      <a href="/">
         <img src="../static/img/logo.png" id="companyLogoNavigationBar" src="home.html" style="cursor: pointer;">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -189,23 +189,23 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/askQuestion" method="post">
             <div class="mb-3">
               <label for="questionTitle" class="form-label">Title of Question</label>
-              <input type="text" class="form-control" id="questionTitle">
+              <input type="text" class="form-control" name="questionTitle" id="questionTitle">
             </div>
             <div class="mb-3">
               <label for="askAQuestionTextArea" class="form-label">Content</label>
-              <textarea class="form-control" id="askAQuestionTextArea"></textarea>
+              <textarea class="form-control" name="questionContentTextArea" id="askAQuestionTextArea"></textarea>
             </div>
             <div class="input-group mb-3">
               <label class="input-group-text" for="selectCategoryofQuestion">Select Category of Question</label>
-              <select class="form-select" id="selectCategoryofQuestion">
+              <select class="form-select" name="selectACategory" id="selectCategoryofQuestion">
                 <option selected>Choose a Category</option>
                 <option value="javascript">Javascript</option>
               </select>
             </div>
-            <button type="submit" class="btn profile-btn">Ask a Question</button>
+            <button type="submit" id="askQuestionSubmitButton" class="btn profile-btn">Ask a Question</button>
           </form>
         </div>
         <div class="modal-footer">

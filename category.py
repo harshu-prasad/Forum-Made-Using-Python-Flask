@@ -5,5 +5,4 @@ category = Blueprint('category',__name__,template_folder='templates') # Creating
 # Make '/categoryId' route and rendering category.html page with specific data according to Id
 @category.route('/<string:categoryId>')
 def renderCategoryPageFunction(categoryId):
-    print('Everything Worked perfectly till here')
     return render_template('category.html') # Rendering HTML Page
