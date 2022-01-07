@@ -15,31 +15,6 @@
   <!-- Linking the css File that will design the current page -->
   <link rel="stylesheet" href="../static/css/question.css">
 
-  <!-- Linking tiny Mce into the website -->
-  <script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
-    referrerpolicy="origin">
-    </script>
-
-  <!-- Adding Neccesary Plugins to work with text editor -->
-  <script type="text/javascript">
-    tinymce.init({
-      selector: '#answerTheQuestion',
-      // width: 1200,
-      // height: 300,
-      plugins: [
-        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'table emoticons template paste help'
-      ],
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-        'forecolor backcolor emoticons | help',
-      menu: {
-        favs: { title: 'Answer the Question', items: 'code visualaid | searchreplace | emoticons' }
-      },
-      menubar: 'favs file edit view insert format tools table help'
-    });
-  </script>
 </head>
 
 <body>
@@ -111,10 +86,6 @@
             <div class="mb-3">
               <label for="userName" class="form-label">Name</label>
               <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
-            </div>
-<div class="mb-3">
-              <label for="inputProfileImage" class="form-label">Profile Image</label>
-              <input type="file" class="form-control" accept="image/*" data-type='image' id="inputProfileImage" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -283,7 +254,7 @@
         <div class="modal-body">
           <form>
             <!-- This is the tinymce textarea that will help the user to answer the question -->
-            <textarea id="answerTheQuestion" style="width: 33vw;"></textarea>
+            <textarea id="answerTheQuestion" name="tinymceEditor" style="width: 33vw;"></textarea>
             <button type="submit" class="btn my-2" style="background-color: rgb(174, 123, 197);">Post Answer</button>
           </form>
         </div>
@@ -298,10 +269,6 @@
     style="background-color: rgb(174, 123, 197); width: 100%; font-weight: bold; font-size: 1.3rem; text-align: center;">
     Copyright 2021 | Ⓒ Pinnacle Forum | All Rights Reserved
   </footer>
-
-
-  <!-- Linking the Javascript File that would make sure that no devices other than PCs and laptops can open answer Question modal -->
-  <script src="../static/js/no tiny mce editor for short devices.js"></script>
 
   <!-- Optional JavaScript; choose one of the two! -->
 

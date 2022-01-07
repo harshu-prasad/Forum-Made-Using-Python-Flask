@@ -17,32 +17,6 @@
 
   <!-- Linking the CSS File that would design the question of the profile -->
   <link rel="stylesheet" href="../static/css/category.css">
-
-  <!-- Linking tiny Mce into the website -->
-  <script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
-    referrerpolicy="origin">
-    </script>
-
-  <!-- Adding Neccesary Plugins to work with text editor -->
-  <script type="text/javascript">
-    tinymce.init({
-      selector: '#askAQuestionTextArea',
-      // width: 1200,
-      // height: 300,
-      plugins: [
-        'advlist autolink link lists charmap print preview hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'table emoticons template paste help'
-      ],
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | link | print preview media fullscreen | ' +
-        'forecolor backcolor emoticons | help',
-      menu: {
-        favs: { title: 'Ask a Question', items: 'code visualaid | searchreplace | emoticons' }
-      },
-      menubar: 'favs file edit view insert format tools table help'
-    });
-  </script>
  
 </head>
 
@@ -117,15 +91,11 @@
               <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="inputProfileImage" class="form-label">Profile Image</label>
-              <input type="file" class="form-control" accept="image/*" data-type='image' id="inputProfileImage" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <label for="exampleInputEmail2" class="form-label">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <label for="exampleInputPassword2" class="form-label">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Signup</button>
@@ -159,10 +129,6 @@
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="inputProfileImage" class="form-label">Profile Image</label>
-              <input type="file" class="form-control" accept="image/*" data-type='image' id="inputProfileImage" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control" id="name">
             </div>
@@ -193,14 +159,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="/askQuestion" method="post">
+          <form>
             <div class="mb-3">
               <label for="questionTitle" class="form-label">Title of Question</label>
               <input type="text" class="form-control" name="questionTitle" id="questionTitle">
             </div>
             <div class="mb-3">
               <label for="askAQuestionTextArea" class="form-label">Content</label>
-              <textarea class="form-control" name="questionContentTextArea" id="askAQuestionTextArea"></textarea>
+              <textarea class="form-control" name="tinymceEditor" id="askAQuestionTextArea"></textarea>
             </div>
             <div class="input-group mb-3">
               <label class="input-group-text" for="selectCategoryofQuestion">Select Category of Question</label>
@@ -209,11 +175,11 @@
                 <option value="javascript">Javascript</option>
               </select>
             </div>
-            <button type="submit" id="askQuestionSubmitButton" class="btn profile-btn">Ask a Question</button>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="askQuestionSubmitButton" class="btn profile-btn">Ask a Question</button>
         </div>
       </div>
     </div>

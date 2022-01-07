@@ -6,11 +6,11 @@
 
 from flask import Flask,render_template,request
 from flask_sqlalchemy import SQLAlchemy
-from routes.home import home # Importing home from home.py to adress '/' route of website
-from routes.category import category # Importing category from category.py file Variable to create route for category pages
-from routes.question import question # Importing question from question.py file Variable to create route for question pages
-from routes.profile import profile # Importing profile from profile.py file Variable to create route for profile pages
-from routes.askQuestion import askQuestion # Importing askQuestion to adress `/askQuestion` endpoint
+from views.home import home # Importing home from home.py to adress '/' route of website
+from views.category import category # Importing category from category.py file Variable to create route for category pages
+from views.question import question # Importing question from question.py file Variable to create route for question pages
+from views.profile import profile # Importing profile from profile.py file Variable to create route for profile pages
+from views.askQuestion import askQuestion # Importing askQuestion to adress `/askQuestion` endpoint
 
 app = Flask(__name__) # Initializing Flask Module
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # ADD This line to remove warnings
