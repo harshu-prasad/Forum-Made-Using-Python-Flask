@@ -13,7 +13,7 @@
   <title>Lorem ipsum dolor sit amet consectetur. - Anonymous</title>
 
   <!-- Linking the css File that will design the current page -->
-  <link rel="stylesheet" href="../static/css/question.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/question.css') }}">
 
 </head>
 
@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg navbar-light  navigation-bar" style="background-color: rgb(174, 123, 197);">
     <div class="container-fluid">
       <a href="/">
-        <img src="../static/img/logo.png" id="companyLogoNavigationBar" src="home.html" style="cursor: pointer;">
+        <img src="../static/img/logo.png" id="companyLogoNavigationBar" style="cursor: pointer;">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,10 +35,15 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary" type="submit">Search</button>
+          {% if user.is_authenticated %}
+          <a class="btn btn-danger mx-1" href="/logout">Logout</a>
+          <a href="/profile/{{user.userName}}" class="user-icon-navbar mx-2">
+            <img src="../static/img/user-icon.svg" style="height: 30px; width: 30px;">
+          </a>
+          {% else %}
           <a class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#loginFormModal">Login</a>
           <a class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#signupFormModal">Signup</a>
+          {% endif %}
         </form>
       </div>
     </div>
@@ -54,14 +59,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/login/" method="post">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" name="emailIdLogin" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" name="passwordLogin" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
@@ -82,18 +87,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/signup/" method="post">
             <div class="mb-3">
               <label for="userName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
+              <input type="text" class="form-control" name="realNameOfUser" id="userName" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" name="emailIdSignup" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" name="passwordSignup" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Signup</button>
           </form>
@@ -163,75 +168,6 @@
       </div>
     </div>
 
-    <div class="answer-div py-3 px-3 my-4">
-      <div class="user-info-question">
-        <a href="/profile/hfkjshfk"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-        <span>Anonymous</span>
-      </div>
-      <span class="question-time">
-        Posted on 02 Dec 2021 at 21:40
-      </span>
-      <div class="answer-description my-2">
-        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
-                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
-                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
-                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
-                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
-                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
-                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
-                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
-                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
-                doloremque similique commodi!💓</strong></em></span></div>
-      </div>
-    </div>
-
-    <div class="answer-div py-3 px-3 my-4">
-      <div class="user-info-question">
-        <a href="/profile/hfkjshfk"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-        <span>Anonymous</span>
-      </div>
-      <span class="question-time">
-        Posted on 02 Dec 2021 at 21:40
-      </span>
-      <div class="answer-description my-2">
-        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
-                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
-                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
-                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
-                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
-                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
-                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
-                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
-                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
-                doloremque similique commodi!💓</strong></em></span></div>
-      </div>
-    </div>
-
-    <div class="answer-div py-3 px-3 my-4">
-      <div class="user-info-question">
-        <a href="/profile/hfkjshfk"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-        <span>Anonymous</span>
-      </div>
-      <span class="question-time">
-        Posted on 02 Dec 2021 at 21:40
-      </span>
-      <div class="answer-description my-2">
-        <div style="text-align: center;"><span style="background-color: #3598db; color: #f1c40f;"><em><strong>Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea. Voluptatum autem voluptatibus
-                molestiae aliquid obcaecati quibusdam ex doloremque similique aspernatur modi sed quae distinctio
-                impedit ullam quam dolorum architecto eligendi beatae natus, quasi voluptas at labore quas. Ipsum,
-                accusantium expedita velit nobis labore, fugiat animi repellat impedit dicta qui autem suscipit,
-                aliquam reprehenderit hic sunt asperiores laboriosam ex consequuntur itaque commodi deleniti cumque
-                totam ipsa quo! Quis nihil quaerat quo explicabo nobis magnam rerum, praesentium ad. Aliquam tenetur
-                asperiores consequuntur fugiat ab aspernatur officia perspiciatis dolore repellat et ipsum iure dicta
-                voluptate velit voluptates illo magnam at quas veniam, autem possimus! Assumenda eveniet dolorum
-                quibusdam unde esse neque, ea laudantium ipsam facilis sit mollitia eum eos reiciendis, quidem debitis
-                doloremque similique commodi!💓</strong></em></span></div>
-      </div>
-    </div>
-
   </div>
 
   <div class="answer-question-parent-div my-3">
@@ -254,7 +190,7 @@
         <div class="modal-body">
           <form>
             <!-- This is the tinymce textarea that will help the user to answer the question -->
-            <textarea id="answerTheQuestion" name="tinymceEditor" style="width: 33vw;"></textarea>
+            <textarea id="answerTheQuestion" class="form-control" name="tinymceEditor" style="width: 33vw;"></textarea>
             <button type="submit" class="btn my-2" style="background-color: rgb(174, 123, 197);">Post Answer</button>
           </form>
         </div>

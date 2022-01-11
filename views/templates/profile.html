@@ -10,14 +10,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
-  <title>Harshu Prasad Shukla - Pinnacle Forum</title>
+  <title>{{profileUser.realNameOfUser}} - Pinnacle Forum</title>
 
   <!-- Linking the CSS File that would design the page -->
-  <link rel="stylesheet" href="../static/css/profile.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css') }}">
 
   <!-- Linking the CSS File that would design the question of the profile -->
-  <link rel="stylesheet" href="../static/css/category.css">
- 
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/category.css') }}">
+
 </head>
 
 <body>
@@ -38,10 +38,15 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary" type="submit">Search</button>
+          {% if user.is_authenticated %}
+          <a class="btn btn-danger mx-1" href="/logout">Logout</a>
+          <a href="/profile/{{user.userName}}" class="user-icon-navbar mx-2">
+            <img src="../static/img/user-icon.svg" style="height: 30px; width: 30px;">
+          </a>
+          {% else %}
           <a class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#loginFormModal">Login</a>
           <a class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#signupFormModal">Signup</a>
+          {% endif %}
         </form>
       </div>
     </div>
@@ -57,14 +62,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/login/" method="post">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" name="emailIdLogin" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" name="passwordLogin" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
@@ -85,18 +91,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/signup/" method="post">
             <div class="mb-3">
               <label for="userName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="userName" aria-describedby="emailHelp">
+              <input type="text" class="form-control" name="realNameOfUser" id="userName" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail2" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" name="emailIdSignup" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword2" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" name="passwordSignup" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Signup</button>
           </form>
@@ -108,14 +115,12 @@
     </div>
   </div>
 
+  {% if user.is_authenticated %}
+  {% if user.userName == profileUser.userName %}
   <div class="profile-div my-2 py-3 px-3">
-      <img src="../static/img/user-icon.svg" class="user-img-profile py-1 px-1 my-2">
-      <h3 class="name">Anonymous</h3>
-      <h5 class="userName">anonymous2354</h5>
-      <span class="user-status">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda ratione velit laudantium amet corporis aperiam quas! Impedit culpa laboriosam, eos dignissimos neque maiores. Quas maiores corrupti neque iusto officiis possimus facilis voluptates aliquid harum.
-      </span>
-      <button class="btn profile-btn my-1" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+    <img src="../static/img/user-icon.svg" class="user-img-profile py-1 px-1 my-2">
+    <h3 class="name">{{profileUser.realNameOfUser}}</h3>
+    <button class="btn profile-btn my-1" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
   </div>
 
   <!-- Creating the Modal that would let the user edit their profile -->
@@ -127,14 +132,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name">
+              <input type="text" name="newRealName" class="form-control" id="name">
             </div>
             <div class="mb-3">
-              <label for="status" class="form-label">Status</label>
-              <textarea class="form-control" id="status"></textarea>
+              <label for="password" class="form-label">Password</label>
+              <input type="password" name="newPassword" class="form-control" id="password">
             </div>
             <button type="submit" class="btn profile-btn">Save Changes</button>
           </form>
@@ -159,7 +164,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/askQuestion/{{profileUser.userName}}">
             <div class="mb-3">
               <label for="questionTitle" class="form-label">Title of Question</label>
               <input type="text" class="form-control" name="questionTitle" id="questionTitle">
@@ -171,81 +176,52 @@
             <div class="input-group mb-3">
               <label class="input-group-text" for="selectCategoryofQuestion">Select Category of Question</label>
               <select class="form-select" name="selectACategory" id="selectCategoryofQuestion">
-                <option selected>Choose a Category</option>
-                <option value="javascript">Javascript</option>
+                {% for category in categoryData %}
+                <option value="{{category.categoryId}}">{{category.categoryName}}</option>
+                {% endfor %}
+                <!-- <option selected>Choose a Category</option> -->
               </select>
             </div>
+            <button type="submit" id="askQuestionSubmitButton" class="btn profile-btn">Ask a Question</button>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button id="askQuestionSubmitButton" class="btn profile-btn">Ask a Question</button>
         </div>
       </div>
     </div>
   </div>
+  {% else %}
+  <div class="profile-div my-2 py-3 px-3">
+    <img src="../static/img/user-icon.svg" class="user-img-profile py-1 px-1 my-2">
+    <h3 class="name">{{profileUser.realNameOfUser}}</h3>
+  </div>
+  {% endif %}
+  {% else %}
+  <div class="profile-div my-2 py-3 px-3">
+    <img src="../static/img/user-icon.svg" class="user-img-profile py-1 px-1 my-2">
+    <h3 class="name">{{profileUser.realNameOfUser}}</h3>
+  </div>
+  {% endif %}
 
   <hr>
 
   <div class="questions-parent-div my-2 container">
-    <h2 class="text-center">Questions asked by Anonymous</h2>
+    <h2 class="text-center">Questions asked by {{profileUser.realNameOfUser}}</h2>
     <div class="question-div my-4 px-4 py-4">
-        <div class="user-div">
-            <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-            <span class="userName">Anonymous</span>
-        </div>
-        <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
-        <div class="question-info">
-            <h3 class="question-heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
-            </h3>
-        </div>
-        <a href="question.html" class="btn question-btn">More About Question</a>
+      <div class="user-div">
+        <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
+        <span class="userName">Anonymous</span>
+      </div>
+      <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
+      <div class="question-info">
+        <h3 class="question-heading">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
+        </h3>
+      </div>
+      <a href="/question/sjdklfjasl" class="btn question-btn">More About Question</a>
     </div>
-
-    <div class="question-div my-4 px-4 py-4">
-        <div class="user-div">
-            <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-            <span class="userName">Anonymous</span>
-        </div>
-        <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
-        <div class="question-info">
-            <h3 class="question-heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
-            </h3>
-        </div>
-        <a href="question.html" class="btn question-btn">More About Question</a>
-    </div>
-
-    <div class="question-div my-4 px-4 py-4">
-        <div class="user-div">
-            <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-            <span class="userName">Anonymous</span>
-        </div>
-        <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
-        <div class="question-info">
-            <h3 class="question-heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
-            </h3>
-        </div>
-        <a href="question.html" class="btn question-btn">More About Question</a>
-    </div>
-
-    <div class="question-div my-4 px-4 py-4">
-        <div class="user-div">
-            <a href="profile.html"><img src="../static/img/user-icon.svg" class="user-icon-question mx-2"></a>
-            <span class="userName">Anonymous</span>
-        </div>
-        <div class="dateAddedDivOfQuestion">Posted on 02 Dec 2021 at 21:40</div>
-        <div class="question-info">
-            <h3 class="question-heading">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptatibus eos commodi.
-            </h3>
-            
-        </div>
-        <a href="question.html" class="btn question-btn">More About Question</a>
-    </div>
-</div>
+  </divÆ  >
 
   <footer class="py-4"
     style="background-color: rgb(174, 123, 197); width: 100%; font-weight: bold; font-size: 1.3rem; text-align: center;">
