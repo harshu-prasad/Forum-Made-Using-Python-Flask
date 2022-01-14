@@ -42,7 +42,7 @@
                 <form class="d-flex">
                     {% if user.is_authenticated %}
                     <a class="btn btn-danger mx-1" href="/logout">Logout</a>
-                    <a href="{{user.userName}}" class="user-icon-navbar mx-2">
+                    <a href="/profile/{{user.userName}}" class="user-icon-navbar mx-2">
                         <img src="../static/img/user-icon.svg" style="height: 30px; width: 30px;">
                     </a>
                     {% else %}
