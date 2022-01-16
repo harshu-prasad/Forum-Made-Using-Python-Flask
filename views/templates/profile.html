@@ -164,7 +164,7 @@
           <form method="post">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" name="newRealName" class="form-control" id="name">
+              <input type="text" name="newRealName" value="{{profileUser.realNameOfUser}}" class="form-control" id="name">
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
@@ -240,6 +240,8 @@
     <h2 class="text-center">User has asked no Questions</h2>
   </div>
   {% else %}
+  {% if user.is_authenticated %}
+  {% if user.userName == profileUser.userName %}
   <div class="questions-parent-div my-2 container">
     <h2 class="text-center">Questions asked by {{profileUser.realNameOfUser}}</h2>
     {% for question in userQuestions %}
@@ -260,6 +262,28 @@
     </div>
     {% endfor %}
   </div>
+  {% endif %}
+  {% else %}
+  <div class="questions-parent-div my-2 container">
+    <h2 class="text-center">Questions asked by {{profileUser.realNameOfUser}}</h2>
+    {% for question in userQuestions %}
+    <div class="question-div my-4 px-4 py-4">
+      <div class="user-div">
+        <a href="/profile/{{profileUser.userName}}"><img src="../static/img/user-icon.svg"
+            class="user-icon-question mx-2"></a>
+        <span class="userName">{{profileUser.realNameOfUser}}</span>
+      </div>
+      <div class="dateAddedDivOfQuestion">{{question.dateNow}}</div>
+      <div class="question-info">
+        <h3 class="question-heading">
+          {{question.questionTitle}}
+        </h3>
+      </div>
+      <a href="/question/{{question.questionId}}" class="btn question-btn">More About Question</a>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
   {% endif %}
 
   <footer class="py-4"

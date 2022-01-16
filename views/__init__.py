@@ -24,6 +24,7 @@ def createApp():
     from .signup import signup # Importing sigup to adress `/signup` endpoint
     from .login import login # Importing login to adress `/login` endpoint
     from .logout import logout # Importing logout to adress `/logout` endpoint
+    from .deleteQuestion import deleteQuestion # Importing deleteQuestion to adress `/deleteQuestion` endpoint
 
     app.register_blueprint(home,url_prefix="/") # Registering Blueprint for category pages so that when category pages are called then code of category pages are used
 
@@ -40,6 +41,7 @@ def createApp():
     app.register_blueprint(login,url_prefix="/login") # Registering login Endpoint in blueprint
 
     app.register_blueprint(logout,url_prefix="/logout") # Registering logout Endpoint in blueprint
+    app.register_blueprint(deleteQuestion,url_prefix="/deleteQuestion") # Registering deleteQuestion Endpoint in blueprint
 
     createDatabase(app) # Running createDatabase function to create database if it doesn't exists
 
