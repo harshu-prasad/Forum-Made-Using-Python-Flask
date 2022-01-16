@@ -9,4 +9,4 @@ from views import createApp # Importing createApp from __init__.py file in views
 app = createApp() # Creating app using function createApp from __init__.py file in views directory
 
 if __name__ == '__main__':
-    app.run(debug=True) # Runs Server at port 5000
+    app.run() # Runs Server at port 5000

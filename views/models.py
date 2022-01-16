@@ -34,7 +34,7 @@ class Answer(db.Model):
     ''' This Model will store details related to answer in database '''
     # Adding Coloumns
     answerId = db.Column(db.String(1000),primary_key=True)
-    questionIdOfAnswer = db.Column(db.String(1000),nullable=False)
+    questionIdOfAnswer = db.Column(db.String(1000),nullable=False) # This is the id of the questio of which is the answer
     answerDescription = db.Column(db.String(250000),nullable=False)
     userNameOfAnswerer = db.Column(db.String(1000),nullable=False)
     realNameOfAnswerer = db.Column(db.String(250),nullable=False)
