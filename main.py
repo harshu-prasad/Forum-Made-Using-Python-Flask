@@ -11,6 +11,5 @@ import os
 app = createApp() # Creating app using function createApp from __init__.py file in views directory
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0',debug=False,port=port) # Runs Server at port 5000
+    app.run() # Runs Server at port 5000
     # app.run(host='0.0.0.0',debug=False,port=int(os.environ.get("PORT", 5000))) # Runs Server at port 5000
